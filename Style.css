@@ -302,7 +302,101 @@ color: white;
     font-size: 8rem;
 
 }
+.parallax-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Asegúrate de que tenga al menos la altura de la ventana */
+    overflow: hidden;
+    background: radial-gradient(#0d0d0d, #000);
+}
 
+.estrellas-container {
+  top: 0;
+left: 0;  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.estrella {
+    position: absolute;
+    /* Ajusta el tamaño para que la forma de estrella sea visible. */
+    /* De 2px a 8px es un buen punto de partida, puedes hacerlo más grande si lo necesitas. */
+    width: 8px;
+    height: 8px;
+    background: white; /* Mantiene el color blanco */
+
+    /* ¡ELIMINA ESTA LÍNEA! Es la que hace que las estrellas sean redondas. */
+    /* border-radius: 50%; */
+
+    opacity: 0.5; /* Mantiene tu opacidad inicial */
+    animation: parpadear 3s infinite ease-in-out; /* Mantiene tu animación */
+
+
+    clip-path: polygon(
+        50% 0%,        /* Punto superior */
+        61% 35%,       /* Vértice superior-derecho interior */
+        98% 35%,       /* Vértice superior-derecho exterior */
+        68% 57%,       /* Vértice medio-derecho interior */
+        79% 91%,       /* Vértice inferior-derecho exterior */
+        50% 70%,       /* Punto inferior */
+        21% 91%,       /* Vértice inferior-izquierdo exterior */
+        32% 57%,       /* Vértice medio-izquierdo interior */
+        2% 35%,        /* Vértice superior-izquierdo exterior */
+        39% 35%        /* Vértice superior-izquierdo interior */
+    );
+
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes parpadear {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+.montana {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 65%;
+  background: linear-gradient(to top, #333, #222);
+  clip-path: polygon(0% 100%, 25% 50%, 50% 80%, 75% 40%, 100% 100%);
+  z-index: 2;
+  transition: transform 0.5s ease-out;
+}
+
+.esfera {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at 30% 30%, #ff00ff, #550055);
+  border-radius: 50%;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px rgba(255, 0, 255, 0.5);
+  z-index: 3;
+  transition: transform 0.2s ease-out;
+}
+
+.titulo-hero {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  color: white;
+  margin-top: 10vh;
+}
+
+.titulo-hero h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.titulo-hero h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
 .projects{
     background-color: var(--second-bg-color);
     color: white;
